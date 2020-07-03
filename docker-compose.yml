@@ -3,5 +3,5 @@ services:
   app:
     build: ./docker
     volumes:
-      - ./src:/var/www/html
+      - ./server:/var/www/html
     tty: true
