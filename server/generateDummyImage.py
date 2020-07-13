@@ -1,5 +1,6 @@
 # [width] [height] [name] [color]
 
+import sys
 import cv2
 import numpy as np
 
@@ -25,17 +26,23 @@ import numpy as np
 #
 #     return out_imgs
 
-name = 'dummy2'
-width = 200
-height = 100
+# name = 'dummy'
+# width = 200
+# height = 100
+name = sys.argv[1]
+width = sys.argv[2]
+height = sys.argv[3]
 
-blank = np.zeros((height, width, 3))
+blank = np.zeros((int(height), int(width), 3))
 blank += [0, 0, 0][::-1] # カラーコードを指定
 
-# height, width, ch = blank.shape
-
-# img = pngEncodeDecode([blank], ch, 0)
-
-# cv2.imwrite(name + '-' + str(width) + 'x' + str(height) + '.png', img[0])
 cv2.imwrite(name + '-' + str(width) + 'x' + str(height) + '.png', blank)
 
+
+
+
+# img = cv2.imread(name + '-' + str(width) + 'x' + str(height) + '.png')
+# height, width, ch = img.shape
+# img = pngEncodeDecode([img], ch, 9)
+#
+# cv2.imwrite(name + '2-' + str(width) + 'x' + str(height) + '.png', img[0])
